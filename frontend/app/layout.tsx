@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Space_Grotesk } from "next/font/google";
+import NavBar from "@/components/NavBar";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -15,18 +16,19 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "TeaIndex — Ceylon Tea, Decoded in Data",
+  title: "TeaIndex - Ceylon Tea, Decoded in Data",
   description:
-    "Sri Lanka's open-access tea industry data platform — Colombo auction prices, tracked and forecast, free for every stakeholder.",
+    "Sri Lanka's open-access tea industry data platform. Colombo auction prices, tracked and forecast, free for every stakeholder.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className={`${fraunces.variable} ${spaceGrotesk.variable} bg-[#0F1611] text-[#EDE8DE] antialiased`}
-        style={{ fontFamily: "var(--font-space-grotesk)" }}
-      >
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${spaceGrotesk.variable} scheme-dark`}
+    >
+      <body className="bg-canvas font-sans text-ink antialiased">
+        <NavBar />
         {children}
       </body>
     </html>
